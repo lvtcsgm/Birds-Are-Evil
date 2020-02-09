@@ -8,7 +8,7 @@ public class DestroyDucks : MonoBehaviour
     {
         Debug.Log("Something happening?");
 
-        if (collision.tag == "Duck")
+        if (collision.tag == "Clone")
         {
             Debug.Log("Destroying the duck.");
             Destroy(collision.gameObject);

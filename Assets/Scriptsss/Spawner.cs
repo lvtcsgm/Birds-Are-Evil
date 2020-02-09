@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-     //   SpawnOnEdge();
+        //   SpawnOnEdge();
         GameOver();
         UpdateTimer();
 
@@ -32,7 +32,7 @@ public class Spawner : MonoBehaviour
     void SpawnOnEdge()
     {
         GameObject tempDuck;
-       
+
         int direction = Random.Range(0, 4);
         // Spawn on bottom
         if (direction == 0)
@@ -75,5 +75,9 @@ public class Spawner : MonoBehaviour
         theweirdspaceinbetween = presenttime - pasttime;
         Debug.Log(theweirdspaceinbetween);
         stopwatch.text = "Time: " + theweirdspaceinbetween;
+    }
+    public void stopSpawning()
+    {
+        CancelInvoke("SpawnOnEdge");
     }
 }

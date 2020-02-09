@@ -11,14 +11,30 @@ public class Destructie_Behaviors : MonoBehaviour
     public GameObject player;
     public GameObject Offscreen;
     public float moveSpeed;
+    private Spawner spawner;
 
     // Start is called before the first frame update
     void Start()
     {
         player_pos = player.transform.position;
         destination = player_pos - gameObject.transform.position;
+        Debug.Log(destination);
         rb = GetComponent<Rigidbody2D>();
+        spawner = FindObjectOfType<Spawner>();
+        if (spawner == null)
+        {
+            Debug.Log("Spawner is null");
+        }
+        if (gameObject.tag == "EducK")
+        {
+            moveSpeed = 0;
+        }
+        else
+        {
+            moveSpeed = 10;
+        }
     }
+
     void DestroyPosers()
     {
         GameObject[] ducks;
@@ -38,6 +54,7 @@ public class Destructie_Behaviors : MonoBehaviour
     {
         if (collision != null && collision.gameObject.tag == "Player")
         {
+            spawner.stopSpawning();
             player.transform.position = Offscreen.transform.position;
             DestroyPosers();
 
