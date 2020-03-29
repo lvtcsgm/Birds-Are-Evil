@@ -6,7 +6,6 @@ public class DestroyDucks : MonoBehaviour
 {
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Something happening?");
 
         if (collision.tag == "Clone")
         {

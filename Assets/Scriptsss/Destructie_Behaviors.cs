@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Destructie_Behaviors : MonoBehaviour
     
@@ -12,6 +13,8 @@ public class Destructie_Behaviors : MonoBehaviour
     public GameObject Offscreen;
     public float moveSpeed;
     private Spawner spawner;
+    public Timer timersss;
+    public LevelManager managersss;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +59,11 @@ public class Destructie_Behaviors : MonoBehaviour
         {
             spawner.stopSpawning();
             player.transform.position = Offscreen.transform.position;
+            timersss.StopTimer();
             DestroyPosers();
+            managersss.LoadLevel("PLay Again");
+            Savesss.Highscoreee = timersss.GetTime();
+            
 
         }
         

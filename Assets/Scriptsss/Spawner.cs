@@ -1,22 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class Spawner : MonoBehaviour
 {
     public GameObject EvilFrenchDuck;
     public GameObject Penguin;
-    public int pasttime;
-    public int presenttime;
-    public int theweirdspaceinbetween;
-    public Text stopwatch;
+    
     // Start is called before the first frame update
     void Start()
     {
         SpawnOnEdge();
-        GameOver();
-        pasttime = (int)Time.time;
+       
         InvokeRepeating("SpawnOnEdge", 0.5f, 0.3f);
 
     }
@@ -25,8 +21,7 @@ public class Spawner : MonoBehaviour
     void Update()
     {
         //   SpawnOnEdge();
-        GameOver();
-        UpdateTimer();
+        
 
     }
     void SpawnOnEdge()
@@ -60,22 +55,8 @@ public class Spawner : MonoBehaviour
         }
 
     }
-    void GameOver()
-    {
-        if (Penguin == null)
-        {
-            Debug.Log("Game Over (*cough* loser)");
-
-        }
-    }
-
-    void UpdateTimer()
-    {
-        presenttime = (int)Time.time;
-        theweirdspaceinbetween = presenttime - pasttime;
-        Debug.Log(theweirdspaceinbetween);
-        stopwatch.text = "Time: " + theweirdspaceinbetween;
-    }
+   
+    
     public void stopSpawning()
     {
         CancelInvoke("SpawnOnEdge");

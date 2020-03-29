@@ -1,15 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     public int movementspeed;
+    public Timer timersss;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        timersss.StartTimer();
     }
 
     // Update is called once per frame
